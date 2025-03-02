@@ -1,10 +1,12 @@
+// Solving Leetcode problems in my freetime
 package main
 
 import (
 	"sort"
 )
 
-func hasDuplicates(nums []int) bool {
+// Problem: https://leetcode.com/problems/contains-duplicate/
+func HasDuplicates(nums []int) bool {
 	type value struct{}
 	set := make(map[int]value)
 	for _, val := range nums {
@@ -13,7 +15,8 @@ func hasDuplicates(nums []int) bool {
 	return len(set) != len(nums)
 }
 
-func isAnagram(s string, t string) bool {
+// Problem: https://leetcode.com/problems/valid-anagram
+func IsAnagram(s string, t string) bool {
 	s_rune := []rune(s)
 	t_rune := []rune(t)
 	sort.Slice(s_rune, func(i, j int) bool {
@@ -30,18 +33,21 @@ func isAnagram(s string, t string) bool {
 	return false
 }
 
-func twoSums(nums []int, target int) []int {
+// Problem: https://leetcode.com/problems/two-sum/
+func TwoSums(nums []int, target int) []int {
 
-	for idx, _ := range nums {
-		if idx == (len(nums) - 1) {
-			break
-		}
-		for j := idx; j < len(nums); j++ {
-			if nums[idx]+nums[j] == target {
+	for idx := range len(nums) - 1 {
+		for j := idx + 1; j < len(nums); j++ {
+			if (nums[idx] + nums[j]) == target {
 				return []int{idx, j}
 			}
 		}
 	}
 	return []int{}
+}
 
+// Problem: https://leetcode.com/problems/group-anagrams/
+func GroupAnagrams(strs []string) [][]string {
+
+	return nil
 }
